@@ -1,18 +1,40 @@
 import React, { useState } from "react"
-import { Modal, IconButton, Box,  Backdrop, Typography } from "@mui/material"
+import { Modal, IconButton, Box, Fade, Backdrop, Zoom, Typography } from "@mui/material"
 import CloseIcon from "@mui/icons-material/Close"
 import FullscreenIcon from "@mui/icons-material/Fullscreen"
 
 const Certificate = ({ ImgSertif }) => {
-	const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
+  const [imgError, setImgError] = useState(false);
 
-	const handleOpen = () => {
+  	const handleOpen = () => {
 		setOpen(true)
 	}
 
 	const handleClose = () => {
 		setOpen(false)
 	}
+
+  // Construct the proper URL
+  const getImageUrl = (filename) => {
+    if (!filename) return '';
+    
+    // If it's already a full URL, return it (after cleaning)
+    if (filename.startsWith('http')) {
+      return filename.replace(/([^:]\/)\/+/g, '$1');
+    }
+    
+    // Otherwise construct from base URL
+    return `https://brkzboljsaylkzvygjnx.supabase.co/storage/v1/object/public/certificates/${filename}`;
+  };
+
+  const imageUrl = getImageUrl(ImgSertif);
+
+  const handleImageError = () => {
+    console.error('Failed to load image:', imageUrl);
+    setImgError(true);
+  };
+
 
 	return (
 		<Box component="div" sx={{ width: "100%" }}>
@@ -57,8 +79,9 @@ const Certificate = ({ ImgSertif }) => {
 					}}>
 					<img
 						className="certificate-image"
-						src={ImgSertif}
+						src={imageUrl}
 						alt="Certificate"
+						onError={handleImageError}
 						style={{
 							width: "100%",
 							height: "auto",
@@ -178,7 +201,8 @@ const Certificate = ({ ImgSertif }) => {
 
 					{/* Modal Image */}
 					<img
-						src={ImgSertif}
+						src={imageUrl}
+						onError={handleImageError}
 						alt="Certificate Full View"
 						style={{
 							display: "block",
