@@ -10,22 +10,18 @@ const Certificate = ({ ImgSertif }) => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-const getImageUrl = (filename) => {
-  if (!filename) return '';
+  const getImageUrl = (filename) => {
+    if (!filename) return '';
+    if (filename.startsWith('http')) return filename;
+    return `https://brkzboljsaylkzvygjnx.supabase.co/storage/v1/object/public/certificates/${encodeURIComponent(filename)}`;
+  };
 
-  if (filename.startsWith('http')) {
-    if (filename.startsWith('https:/') && !filename.startsWith('https://')) {
-      filename = filename.replace('https:/', 'https://');
-    }
-    return filename;
-  }
+  const imageUrl = getImageUrl(ImgSertif);
 
-  const encoded = encodeURIComponent(filename);
-  return `https://brkzboljsaylkzvygjnx.supabase.co/storage/v1/object/public/certificates/${encoded}`;
-};
-
-// ✅ Add this line to actually use the function
-const imageUrl = getImageUrl(ImgSertif);
+  const handleImageError = () => {
+    console.error('❌ Failed to load image:', imageUrl);
+    setImgError(true);
+  };
 
   return (
     <Box component="div" sx={{ width: "100%" }}>
