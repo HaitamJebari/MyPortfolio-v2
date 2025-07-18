@@ -1,25 +1,5 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    Content-Security-Policy = "default-src 'self'; img-src 'self' data: https: *.supabase.co; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; font-src 'self' data: https:; connect-src 'self' https: wss: *.supabase.co; frame-src 'self'; object-src 'none'; base-uri 'self';"
-    X-Frame-Options = "DENY"
-    X-Content-Type-Options = "nosniff"
-    Referrer-Policy = "strict-origin-when-cross-origin"
-
-[build]
-  publish = "build"
-  command = "npm run build"
-
-[build.environment]
-  NODE_VERSION = "18"
-  NPM_VERSION = "9"
-
-[[redirects]]
-  from = "/api/*"
-  to = "/.netlify/functions/:splat"
-  status = 200
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200    
+    Access-Control-Allow-Origin = "*"
+    Content-Security-Policy = "default-src 'self'; img-src * data:;"
