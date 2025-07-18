@@ -12,11 +12,18 @@ const Certificate = ({ ImgSertif }) => {
 
   const getImageUrl = (filename) => {
     if (!filename) return '';
-    if (filename.startsWith('http')) return filename;
-    return `https://brkzboljsaylkzvygjnx.supabase.co/storage/v1/object/public/certificates/${encodeURIComponent(filename)}`;
+      // Fix malformed 'https:/example.com' → 'https://example.com'
+  if (filename.startsWith('http')) {
+    return filename.replace(/^https?:\/(?!\/)/, match => match + '/');
+  }
+    // Construct full Supabase URL
+  const encoded = encodeURIComponent(filename);
+  return `https://brkzboljsaylkzvygjnx.supabase.co/storage/v1/object/public/certificates/${encoded}`;
+
   };
 
   const imageUrl = getImageUrl(ImgSertif);
+  console.log("✅ Final image URL:", imageUrl);
 
   const handleImageError = () => {
     console.error('❌ Failed to load image:', imageUrl);
