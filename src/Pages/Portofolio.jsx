@@ -102,7 +102,7 @@ function a11yProps(index) {
   };
 }
 
-// techStacks tetap sama
+// techStacks 
 const techStacks = [
   { icon: "html.svg", language: "HTML" },
   { icon: "css.svg", language: "CSS" },
@@ -112,9 +112,10 @@ const techStacks = [
   { icon: "vite.svg", language: "Vite" },
   { icon: "nodejs.svg", language: "Node JS" },
   { icon: "bootstrap.svg", language: "Bootstrap" },
-  { icon: "firebase.svg", language: "Firebase" },
+  { icon: "python.svg", language: "Python" },
   { icon: "MUI.svg", language: "Material UI" },
   { icon: "SweetAlert.svg", language: "SweetAlert2" },
+  { icon: "php.svg", language: "PHP" },
 ];
 
 export default function FullWidthTabs() {
