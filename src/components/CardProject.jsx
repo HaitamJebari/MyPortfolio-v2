@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ExternalLink, ArrowRight } from 'lucide-react';
 
 const CardProject = ({ Img, Title, Description, Link: ProjectLink, id }) => {
+    const [imgError, setImgError] = useState(false);
   // Handle kasus ketika ProjectLink kosong
   const handleLiveDemo = (e) => {
     if (!ProjectLink) {
@@ -21,6 +22,31 @@ const CardProject = ({ Img, Title, Description, Link: ProjectLink, id }) => {
   };
   
 
+
+const getImageUrl = (filename) => {
+    if (!filename) return '';
+      // Fix malformed 'https:/example.com' → 'https://example.com'
+  if (filename.startsWith('http')) {
+    return filename.replace(/^https?:\/(?!\/)/, match => match + '/');
+  }
+    // Construct full Supabase URL
+  const encoded = encodeURIComponent(filename);
+  return `https://brkzboljsaylkzvygjnx.supabase.co/storage/v1/object/public/profile-images/${encoded}`;
+
+  };
+
+  const imageUrl = getImageUrl(Img);
+  console.log("✅ Final image URL:", imageUrl);
+
+  const handleImageError = () => {
+    console.error('❌ Failed to load image:', imageUrl);
+    setImgError(true);
+  };
+
+
+
+
+
   return (
     <div className="group relative w-full">
             
@@ -30,7 +56,8 @@ const CardProject = ({ Img, Title, Description, Link: ProjectLink, id }) => {
         <div className="relative p-5 z-10">
           <div className="relative overflow-hidden rounded-lg">
             <img
-              src={Img}
+              src={imageUrl}
+              onError={handleImageError}
               alt={Title}
               className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
             />

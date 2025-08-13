@@ -10,6 +10,9 @@ const Certificate = ({ ImgSertif }) => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+
+
+  
   const getImageUrl = (filename) => {
     if (!filename) return '';
       // Fix malformed 'https:/example.com' → 'https://example.com'
@@ -29,6 +32,8 @@ const Certificate = ({ ImgSertif }) => {
     console.error('❌ Failed to load image:', imageUrl);
     setImgError(true);
   };
+
+
 
   return (
     <Box component="div" sx={{ width: "100%" }}>
