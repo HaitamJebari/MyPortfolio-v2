@@ -162,13 +162,16 @@ const fetchData = useCallback(async () => {
     const projectData = projectsResponse.data || [];
     const certificateData = certificatesResponse.data || [];
 
-    // Clean certificate URLs before setting state
-    const cleanedCertificates = certificateData.map(cert => ({
-      ...cert,
-      Img: cert.Img 
-        ? `${supabase.storageUrl}/object/public/certificates/${cert.Img.replace(/^\/|\/$/g, '')}`.replace(/\/+/g, '/')
-        : ''
-    }));
+
+
+    // Use Supabase built-in getPublicUrl
+    const cleanedCertificates = certificateData.map(cert => {
+      if (!cert.Img) return { ...cert, Img: '' };
+      const { data } = supabase.storage
+        .from("certificates") // name of your storage bucket
+        .getPublicUrl(cert.Img); // path inside bucket
+      return { ...cert, Img: data.publicUrl };
+    });
 
     setProjects(projectData);
     setCertificates(cleanedCertificates);
