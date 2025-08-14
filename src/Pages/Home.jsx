@@ -259,6 +259,9 @@ const Home = () => {
               </div>
             </div>
 
+
+
+
             {/* Right Column - Optimized Lottie Animation */}
             <div
               className="w-full py-[10%] sm:py-0 lg:w-1/2 h-auto lg:h-[600px] xl:h-[750px] relative flex items-center justify-center order-2 lg:order-2 mt-8 lg:mt-0"
@@ -275,9 +278,9 @@ const Home = () => {
                 ></div>
 
                 <div
-                  className={`relative z-10 w-full opacity-90 transform transition-transform duration-500 ${
+                  className={`relative z-10 w-full max-w-[270px] opacity-90 mx-auto transform transition-transform duration-500 ${
                     isHovering ? "scale-105" : "scale-100"
-                  }`}
+                  } aspect-square sm:aspect-[4/3]`}
                 >
                   <DotLottieReact {...lottieOptions} />
                 </div>
