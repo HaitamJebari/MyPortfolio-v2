@@ -10,10 +10,12 @@ import ContactPage from "./Pages/Contact";
 import ProjectDetails from "./components/ProjectDetail";
 import WelcomeScreen from "./Pages/WelcomeScreen";
 import { AnimatePresence } from 'framer-motion';
+import { ToastContainer, toast } from 'react-toastify';
+
 
 const LandingPage = ({ showWelcome, setShowWelcome }) => {
   return (
-    <>
+    <> 
       <AnimatePresence mode="wait">
         {showWelcome && (
           <WelcomeScreen onLoadingComplete={() => setShowWelcome(false)} />
