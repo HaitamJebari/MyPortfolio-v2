@@ -11,7 +11,6 @@ import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-
 // Memoized Components
 const StatusBadge = memo(() => (
   <div
@@ -19,12 +18,24 @@ const StatusBadge = memo(() => (
     data-aos="zoom-in"
     data-aos-delay="400"
   >
-    <div className="relative group">
+    {/* <div className="relative group">
       <div className="absolute -inset-0.5 bg-gradient-to-r from-[#6366f1] to-[#a855f7] rounded-full blur opacity-30 group-hover:opacity-50 transition duration-1000"></div>
       <div className="relative px-3 sm:px-4 py-2 rounded-full bg-black/40 backdrop-blur-xl border border-white/10">
         <span className="bg-gradient-to-r from-[#6366f1] to-[#a855f7] text-transparent bg-clip-text sm:text-sm text-[0.7rem] font-medium flex items-center">
           <Sparkles className="sm:w-4 sm:h-4 w-3 h-3 mr-2 text-blue-400" />
           Ready to Innovate
+        </span>
+      </div>
+    </div> */}
+    <div className="relative group mt-4 ">
+      <div className="absolute -inset-0.5 bg-gradient-to-r from-green-500 to-green-400 rounded-full blur opacity-30 group-hover:opacity-50 transition duration-1000"></div>
+      <div className="relative px-3 sm:px-4 py-2 rounded-full bg-black/40 backdrop-blur-xl border border-white/10">
+        <span className="bg-gradient-to-r from-green-500 to-green-400 text-transparent bg-clip-text sm:text-sm text-[0.7rem] font-medium flex items-center">
+          <span className="relative mr-2">
+            <span className="absolute inset-0 w-3 h-3 rounded-full bg-green-400 animate-ping"></span>
+            <span className="relative w-3 h-3 rounded-full bg-green-500 block shadow-[0_0_6px_2px_rgba(34,197,94,0.8)]"></span>
+          </span>
+          Currently in an internship
         </span>
       </div>
     </div>
@@ -44,7 +55,7 @@ const MainTitle = memo(() => (
       <span className="relative inline-block mt-2">
         <span className="absolute -inset-2 bg-gradient-to-r from-[#6366f1] to-[#a855f7] blur-2xl opacity-20"></span>
         <span className="relative bg-gradient-to-r from-[#6366f1] to-[#a855f7] bg-clip-text text-transparent">
-          Developer
+          Software Developer
         </span>
       </span>
     </h1>
@@ -95,7 +106,7 @@ const SocialLink = memo(({ icon: Icon, link }) => (
 const TYPING_SPEED = 100;
 const ERASING_SPEED = 50;
 const PAUSE_DURATION = 2000;
-const WORDS = ["Full-Stack Developer", "Tech Enthusiast"];
+const WORDS = ["Full-Stack Software Developer", "Tech Enthusiast"];
 const TECH_STACK = ["React", "Javascript", "Node.js", "Tailwind"];
 const SOCIAL_LINKS = [
   { icon: Github, link: "https://github.com/HaitamJebari" },
@@ -182,13 +193,7 @@ const Home = () => {
   };
 
   return (
-
-
-
-
     <div className="min-h-screen bg-[#030014] overflow-hidden" id="Home">
-      
-      
       <div
         className={`relative z-10 transition-all duration-1000 ${
           isLoaded ? "opacity-100" : "opacity-0"
@@ -305,7 +310,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-      
     </div>
   );
 };
