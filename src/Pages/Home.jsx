@@ -200,7 +200,7 @@ const Home = () => {
           isLoaded ? "opacity-100" : "opacity-0"
         }`}
       >
-        <div className="container max-sm:mt-[9em] mx-auto px-[5%] sm:px-6 lg:px-[0%] min-h-screen">
+        <div className="container max-sm:mt-[8em] mx-auto px-[5%] sm:px-6 lg:px-[0%] min-h-screen">
           <div className="flex flex-col lg:flex-row items-center justify-center h-screen md:justify-between gap-0 sm:gap-12 lg:gap-20">
             {/* Left Column */}
             <div
