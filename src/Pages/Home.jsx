@@ -289,15 +289,11 @@ const Home = () => {
 
                 <div
                   className={`relative z-10 w-full opacity-90 transform transition-transform duration-500 ${
-                    isHovering ? "scale-105 sm:scale-[160%] md:scale-[150%] lg:scale-[145%] rotate-2" 
-                               : "scale-100 sm:scale-[155%] md:scale-[145%] lg:scale-[140%]"
+                    isHovering ? "scale-105" : "scale-100"
                   }`}
                 >
                   <Lottie 
-                     style= {{ width: "100%", height: "100%" }}
-                     className="w-full h-full transition-all duration-500"
                      animationData={lot}
-
                   />
                 </div>
 
