@@ -200,7 +200,7 @@ const Home = () => {
           isLoaded ? "opacity-100" : "opacity-0"
         }`}
       >
-        <div className="container mx-auto px-[5%] sm:px-6 lg:px-[0%] min-h-screen">
+        <div className="container max-sm:mt-[9em] mx-auto px-[5%] sm:px-6 lg:px-[0%] min-h-screen">
           <div className="flex flex-col lg:flex-row items-center justify-center h-screen md:justify-between gap-0 sm:gap-12 lg:gap-20">
             {/* Left Column */}
             <div
@@ -289,10 +289,16 @@ const Home = () => {
 
                 <div
                   className={`relative z-10 w-full opacity-90 transform transition-transform duration-500 ${
-                    isHovering ? "scale-105" : "scale-100"
+                    isHovering ? "scale-105 sm:scale-[160%] md:scale-[150%] lg:scale-[145%] rotate-2" 
+                               : "scale-100 sm:scale-[155%] md:scale-[145%] lg:scale-[140%]"
                   }`}
                 >
-                  <Lottie animationData={lot} />
+                  <Lottie 
+                     style= {{ width: "100%", height: "100%" }}
+                     className="w-full h-full transition-all duration-500"
+                     animationData={lot}
+
+                  />
                 </div>
 
                 <div
