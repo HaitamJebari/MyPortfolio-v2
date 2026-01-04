@@ -7,9 +7,10 @@ import {
   Instagram,
   Sparkles,
 } from "lucide-react";
-import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Lottie from "lottie-react"
+import lot from "../assets/lot.json"
 
 // Memoized Components
 const StatusBadge = memo(() => (
@@ -175,22 +176,22 @@ const Home = () => {
     return () => clearTimeout(timeout);
   }, [handleTyping]);
 
-  // Lottie configuration
-  const lottieOptions = {
-    src: "https://lottie.host/58753882-bb6a-49f5-a2c0-950eda1e135a/NLbpVqGegK.lottie",
-    loop: true,
-    autoplay: true,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-      progressiveLoad: true,
-    },
-    style: { width: "100%", height: "100%" },
-    className: `w-full h-full transition-all duration-500 ${
-      isHovering
-        ? "scale-[180%] sm:scale-[160%] md:scale-[150%] lg:scale-[145%] rotate-2"
-        : "scale-[175%] sm:scale-[155%] md:scale-[145%] lg:scale-[140%]"
-    }`,
-  };
+  // // Lottie configuration
+  // const lottieOptions = {
+  //   src: "../assets/lot.json",
+  //   loop: true,
+  //   autoplay: true,
+  //   rendererSettings: {
+  //     preserveAspectRatio: "xMidYMid slice",
+  //     progressiveLoad: true,
+  //   },
+  //   style: { width: "100%", height: "100%" },
+  //   className: `w-full h-full transition-all duration-500 ${
+  //     isHovering
+  //       ? "scale-[180%] sm:scale-[160%] md:scale-[150%] lg:scale-[145%] rotate-2"
+  //       : "scale-[175%] sm:scale-[155%] md:scale-[145%] lg:scale-[140%]"
+  //   }`,
+  // };
 
   return (
     <div className="min-h-screen bg-[#030014] overflow-hidden" id="Home">
@@ -291,7 +292,7 @@ const Home = () => {
                     isHovering ? "scale-105" : "scale-100"
                   }`}
                 >
-                  <DotLottieReact {...lottieOptions} style={{ zIndex: 10 }} />
+                  <Lottie animationData={lot} />
                 </div>
 
                 <div
