@@ -19,7 +19,7 @@ const StatusBadge = memo(() => (
     data-aos="zoom-in"
     data-aos-delay="400"
   >
-    {/* <div className="relative group">
+    <div className="relative group">
       <div className="absolute -inset-0.5 bg-gradient-to-r from-[#6366f1] to-[#a855f7] rounded-full blur opacity-30 group-hover:opacity-50 transition duration-1000"></div>
       <div className="relative px-3 sm:px-4 py-2 rounded-full bg-black/40 backdrop-blur-xl border border-white/10">
         <span className="bg-gradient-to-r from-[#6366f1] to-[#a855f7] text-transparent bg-clip-text sm:text-sm text-[0.7rem] font-medium flex items-center">
@@ -27,8 +27,9 @@ const StatusBadge = memo(() => (
           Ready to Innovate
         </span>
       </div>
-    </div> */}
-    <div className="relative group mt-4 ">
+    </div>
+
+    {/* <div className="relative group mt-4 ">
       <div className="absolute -inset-0.5 bg-gradient-to-r from-green-500 to-green-400 rounded-full blur opacity-30 group-hover:opacity-50 transition duration-1000"></div>
       <div className="relative px-3 sm:px-4 py-2 rounded-full bg-black/40 backdrop-blur-xl border border-white/10">
         <span className="bg-gradient-to-r from-green-500 to-green-400 text-transparent bg-clip-text sm:text-sm text-[0.7rem] font-medium flex items-center">
@@ -39,7 +40,7 @@ const StatusBadge = memo(() => (
           Currently in an internship
         </span>
       </div>
-    </div>
+    </div> */}
   </div>
 ));
 
