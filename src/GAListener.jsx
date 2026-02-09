@@ -6,7 +6,7 @@ function GAListener() {
 
   useEffect(() => {
     if (window.gtag) {
-      window.gtag("config", "G-XXXXXXXXXX", {
+      window.gtag("config", "G-9XKCY9XF93", {
         page_path: location.pathname,
       });
     }
