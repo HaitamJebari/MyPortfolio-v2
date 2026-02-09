@@ -11,6 +11,7 @@ import ProjectDetails from "./components/ProjectDetail";
 import WelcomeScreen from "./Pages/WelcomeScreen";
 import { AnimatePresence } from 'framer-motion';
 import { ToastContainer, toast } from 'react-toastify';
+import GAListener from "./GAListener";
 
 
 const LandingPage = ({ showWelcome, setShowWelcome }) => {
@@ -65,6 +66,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      <GAListener />
       <Routes>
         <Route path="/" element={<LandingPage showWelcome={showWelcome} setShowWelcome={setShowWelcome} />} />
         <Route path="/project/:id" element={<ProjectPageLayout />} />
