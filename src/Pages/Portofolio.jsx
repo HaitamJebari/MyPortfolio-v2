@@ -339,6 +339,7 @@ const fetchData = useCallback(async () => {
                       Description={project.Description}
                       Link={project.Link}
                       id={project.id}
+                      isNew={projects.indexOf(project) >= projects.length - 2}
                     />
                   </div>
                 ))}
